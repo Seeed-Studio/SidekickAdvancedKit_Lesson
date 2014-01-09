@@ -116,11 +116,11 @@ void loop()
     
     if(hour == hour_clock && min == min_clock && sec == sec_clock)
     {
-        digitalWrite(pinBuzzer, HIGH);
+        digitalWrite(pinBuzzer, HIGH);                      // buzzer on
     }
     
-    display.pointOn();
+    display.pointOn();                                      // display :
     delay(500);
-    display.pointOff();
+    display.pointOff();                                     // no display :
     delay(500);
 }
