@@ -73,11 +73,11 @@ const int pinCOM4   = 7;
 const int pinAll[12] = {pinA, pinB, pinC, pinD, pinE, pinF, pinG, pinDP, pinCOM1, pinCOM2, pinCOM3, pinCOM4};
 
 
-int hour = 14;
-int min  = 59;
+int hour = 18;
+int min  = 11;
 int sec  = 55;
 
-int hour_clock = 15;
+int hour_clock = 20;
 int min_clock  = 00;
 int sec_clock  = 0;
 
