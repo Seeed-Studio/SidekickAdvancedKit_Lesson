@@ -60,6 +60,7 @@ void setup()
 
 int state = 0;
 
+// delay x ms untill when press button  
 void checkBtnAndDelay(int ms)
 {
     for(int i=0; i<ms; i++)
@@ -82,12 +83,12 @@ void checkBtnAndDelay(int ms)
 void loop()
 {
     
-    if(0 == state)
+    if(0 == state)                          // no beat
     {
         matrix.dispMatrix(big_heart);
         checkBtnAndDelay(1);
     }
-    else
+    else                                    // beat
     {
         matrix.dispMatrix(big_heart);
         checkBtnAndDelay(200);
