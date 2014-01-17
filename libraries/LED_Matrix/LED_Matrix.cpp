@@ -21,8 +21,8 @@
 */
 
 #include <Arduino.h>
-#include <TimerOne.h>
 #include <Streaming.h>
+#include <MsTimer2.h>
 
 #include "LED_Matrix.h"
 #include "font.h"
@@ -65,8 +65,13 @@ void LED_Matrix::begin()
     clear();
     
     io_init();
-    Timer1.initialize(1000); // set a timer of length 100000 microseconds (or 0.1 sec - or 10Hz => the led will blink 5 times, 5 cycles of on-and-off, per second)
-    Timer1.attachInterrupt( timerIsr ); // attach the service routine here
+    //Timer1.initialize(1000); // set a timer of length 100000 microseconds (or 0.1 sec - or 10Hz => the led will blink 5 times, 5 cycles of on-and-off, per second)
+    //Timer1.attachInterrupt( timerIsr ); // attach the service routine here
+    
+    MsTimer2::set(1, timerIsr); // 500ms period
+    MsTimer2::start();
+  
+  
 }
 
 void LED_Matrix::setDispDta(uchar *dta)
