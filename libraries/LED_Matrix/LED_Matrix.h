@@ -26,6 +26,9 @@
 #include <string.h>
 #include "LED_Matrix_dfs.h"
 
+
+#define _USE_TIMER_         0           // IF USE TIMER2
+
 class LED_Matrix{
 
 private:

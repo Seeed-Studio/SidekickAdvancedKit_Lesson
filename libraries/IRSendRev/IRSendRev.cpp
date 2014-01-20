@@ -198,7 +198,9 @@ int IRSendRev::decode(decode_results *results) {
     return ERR;
   }
   // Throw away and start over
-  Clear();
+  
+  // Clear();
+  
   return 1;
 }
 

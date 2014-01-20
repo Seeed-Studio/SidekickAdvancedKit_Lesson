@@ -39,11 +39,15 @@ const int col[8] = {
 
 #define __BIT(n)    (0x01<<n)
 
+
+#if _USE_TIMER_
 void timerIsr()
 {
     matrix.timer_();
 }
+#endif
 
+// if no use timer, this function should be used in main() per 1ms
 void LED_Matrix::timer_()
 {
     for(int i=0; i<8; i++)
@@ -65,13 +69,14 @@ void LED_Matrix::begin()
     clear();
     
     io_init();
+    
+#if _USE_TIMER_
     //Timer1.initialize(1000); // set a timer of length 100000 microseconds (or 0.1 sec - or 10Hz => the led will blink 5 times, 5 cycles of on-and-off, per second)
     //Timer1.attachInterrupt( timerIsr ); // attach the service routine here
     
     MsTimer2::set(1, timerIsr); // 500ms period
     MsTimer2::start();
-  
-  
+#endif  
 }
 
 void LED_Matrix::setDispDta(uchar *dta)

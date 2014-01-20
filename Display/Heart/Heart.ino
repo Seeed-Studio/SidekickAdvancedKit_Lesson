@@ -17,8 +17,6 @@
 
 #include <LED_Matrix.h>
 #include <LED_Matrix_dfs.h>
-#include <TimerOne.h>
-
 
 const int pinBtn = A0;
 
@@ -80,6 +78,8 @@ void checkBtnAndDelay(int ms)
     }
 }
 
+long tiemr_tmp = 0;
+
 void loop()
 {
     
@@ -95,6 +95,12 @@ void loop()
         
         matrix.dispMatrix(small_heart);
         checkBtnAndDelay(800);
+    }
+    
+    if((micros() - tiemr_tmp) > 1000)
+    {
+        tiemr_tmp = micros();
+        matrix.timer_();
     }
 
 }
